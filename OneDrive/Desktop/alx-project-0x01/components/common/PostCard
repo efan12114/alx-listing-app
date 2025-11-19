@@ -1,0 +1,25 @@
+import React from 'react';
+import { PostProps } from "@/interfaces"; // <-- THIS LINE IS CRUCIAL
+// ... rest of the code
+
+// The component accepts the properties defined in the PostProps interface
+const PostCard: React.FC<PostProps> = ({ title, body, userId, id }) => {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100">
+      <h2 className="text-xl font-bold text-gray-900 mb-2 capitalize">
+        {title}
+      </h2>
+      <p className="text-gray-600 mb-4 line-clamp-3">
+        {body}
+      </p>
+      
+      {/* Footer metadata */}
+      <div className="text-sm text-gray-500 pt-3 border-t border-gray-100">
+        <p>User ID: {userId}</p>
+        <p>Post ID: {id}</p>
+      </div>
+    </div>
+  );
+};
+
+export default PostCard;
